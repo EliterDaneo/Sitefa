@@ -18,7 +18,7 @@ class WelcomeController extends Controller
 
     public function visi()
     {
-        return view('home.visi');
+        return view('home.vm.index');
     }
 
     public function produk()
@@ -28,7 +28,7 @@ class WelcomeController extends Controller
 
     public function so()
     {
-        return view('home.so');
+        return view('home.so.index');
     }
 
     public function kontak()
