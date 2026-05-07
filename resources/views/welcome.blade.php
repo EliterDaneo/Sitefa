@@ -11,17 +11,17 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
 
-                <img src="{{ asset('assets/images/slider_image.png') }}" class="w-100">
+                <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100">
 
             </div>
             <div class="carousel-item">
 
-                <img src="{{ asset('assets/images/slider_image.png') }}" class="w-100">
+                <img src="{{ asset('assets/images/14.jpeg') }}" class="w-100">
 
             </div>
             <div class="carousel-item">
 
-                <img src="{{ asset('assets/images/slider_image.png') }}" class="w-100">
+                <img src="{{ asset('assets/images/13.jpeg') }}" class="w-100">
 
             </div>
         </div>
@@ -162,7 +162,7 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
-                    <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                    <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                         style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                     <div class="card-body">
                         <a href="#" class="text-dark text-decoration-none">
@@ -176,7 +176,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
-                    <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                    <img src="{{ asset('assets/images/14.jpeg') }}" class="w-100"
                         style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                     <div class="card-body">
                         <a href="#" class="text-dark text-decoration-none">
@@ -190,7 +190,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
-                    <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                    <img src="{{ asset('assets/images/13.jpeg') }}" class="w-100"
                         style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                     <div class="card-body">
                         <a href="#" class="text-dark text-decoration-none">
@@ -203,7 +203,7 @@
                 </div>
             </div>
             <div class="col-md-12 text-center mt-2 mb-4">
-                <a href="#" class="btn btn-outline-secondary px-4">
+                <a href="{{ route('berita') }}" class="btn btn-outline-secondary px-4">
                     <i class="fas fa-book-open mr-2"></i> Lihat Semua Berita
                 </a>
             </div>
@@ -218,7 +218,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                            <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                                 style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                             <div class="card-body">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -232,7 +232,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                            <img src="{{ asset('assets/images/14.jpeg') }}" class="w-100"
                                 style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                             <div class="card-body">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -246,7 +246,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                            <img src="{{ asset('assets/images/13.jpeg') }}" class="w-100"
                                 style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                             <div class="card-body">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -260,7 +260,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/post_image.png') }}" class="w-100"
+                            <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                                 style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
                             <div class="card-body">
                                 <a href="#" class="text-dark text-decoration-none">
@@ -273,7 +273,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 text-center mt-2 mb-3">
-                        <a href="#" class="btn btn-outline-secondary px-4">
+                        <a href="{{ route('produk') }}" class="btn btn-outline-secondary px-4">
                             <i class="fas fa-box-open mr-2"></i> Lihat Semua Produk
                         </a>
                     </div>

@@ -13,7 +13,7 @@ class WelcomeController extends Controller
 
     public function berita()
     {
-        return view('home.berita');
+        return view('home.berita.index');
     }
 
     public function visi()
@@ -23,11 +23,16 @@ class WelcomeController extends Controller
 
     public function produk()
     {
-        return view('home.produk');
+        return view('home.produk.index');
     }
 
     public function so()
     {
         return view('home.so');
+    }
+
+    public function kontak()
+    {
+        return view('home.kontak.index');
     }
 }

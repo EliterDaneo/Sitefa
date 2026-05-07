@@ -12,3 +12,4 @@ Route::get('/berita', [App\Http\Controllers\WelcomeController::class, 'berita'])
 Route::get('/visi', [App\Http\Controllers\WelcomeController::class, 'visi'])->name('visi');
 Route::get('/produk', [App\Http\Controllers\WelcomeController::class, 'produk'])->name('produk');
 Route::get('/struktur-organisasi', [App\Http\Controllers\WelcomeController::class, 'so'])->name('struktur-organisasi');
+Route::get('/kontak', [App\Http\Controllers\WelcomeController::class, 'kontak'])->name('kontak');
