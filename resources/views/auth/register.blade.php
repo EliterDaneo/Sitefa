@@ -17,7 +17,7 @@
                             </div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('register') }}" class="needs-validation"
+                                <form method="POST" action="{{ route('proses.register') }}" class="needs-validation"
                                     novalidate="">
                                     @csrf
                                     <div class="form-group">

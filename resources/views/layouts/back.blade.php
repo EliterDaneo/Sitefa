@@ -22,6 +22,9 @@
     <script src="{{ asset('assets/back/modules/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/back/js/sweetalert.min.js') }}"></script>
 
+    <link href="{{ asset('assets/back/DataTables/datatables.min.css') }}" rel="stylesheet">
+    @stack('styles')
+
 </head>
 
 <body style="background: #e2e8f0">
@@ -78,12 +81,12 @@
                                     class="fas fa-tags"></i> <span>Berita</span></a>
                         </li>
 
-                        <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="#"><i
-                                    class="fas fa-folder"></i>
+                        <li class="{{ setActive('admin/category') }}"><a class="nav-link"
+                                href="{{ route('category.index') }}"><i class="fas fa-folder"></i>
                                 <span>Kategori</span></a></li>
 
                         <li class="{{ setActive('admin/order') }}"><a class="nav-link" href="#"><i
-                                    class="fas fa-ordered-list"></i>
+                                    class="fas fa-cart-plus"></i>
                                 <span>Order</span></a></li>
 
                         <li class="menu-header">Menu SO</li>
@@ -101,33 +104,25 @@
                                     class="fas fa-laptop"></i>
                                 <span>Sliders</span></a></li>
 
-                        <li
-                            class="dropdown {{ setActive('admin/role') . setActive('admin/permission') . setActive('admin/user') }}">
+                        <li class="menu-header">PENGGUNA</li>
 
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Users
-                                    Management</span></a>
+                        <li class="{{ setActive('admin/pengguna') }}"><a class="nav-link" href="#"><i
+                                    class="fas fa-users"></i>
+                                <span>Pengguna</span></a></li>
 
-
-                            <ul class="dropdown-menu">
-                                <li class="{{ setActive('admin/role') }}"><a class="nav-link" href="#"><i
-                                            class="fas fa-unlock"></i> Roles</a>
-                                </li>
-
-                                <li class="{{ setActive('admin/permission') }}"><a class="nav-link"
-                                        href="#"><i class="fas fa-key"></i>
-                                        Permissions</a></li>
-
-                                <li class="{{ setActive('admin/user') }}"><a class="nav-link" href="#"><i
-                                            class="fas fa-users"></i> Users</a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </aside>
             </div>
 
             <!-- Main Content -->
-            @yield('content')
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>{{ $title ?? config('app.name', 'Laravel') }}</h1>
+                    </div>
+                    @yield('content')
+                </section>
+            </div>
 
             <footer class="main-footer">
                 <div class="footer-left">
@@ -148,14 +143,12 @@
     <script src="{{ asset('assets/back/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('assets/back/js/stisla.js') }}"></script>
     <script src="{{ asset('assets/back/modules/select2/dist/js/select2.full.min.js') }}"></script>
-
-    <!-- JS Libraies -->
-
-    <!-- Page Specific JS File -->
-
-    <!-- Template JS File -->
+    <script src="{{ asset('assets/back/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/back/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/back/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/back/js/crud.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @stack('scripts')
     <script>
         //active select2
         $(document).ready(function() {
