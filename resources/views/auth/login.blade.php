@@ -47,11 +47,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input"
-                                                tabindex="3" id="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Remember Me</label>
-                                        </div>
+                                        <a href="{{ route('register') }}">
+                                            Belum punya akun? Daftar sekarang!
+                                        </a>
                                     </div>
 
                                     <div class="form-group">
