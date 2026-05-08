@@ -30,10 +30,22 @@
 
     <script>
         $(document).ready(function() {
+
+            // Carousel
             $('#myCarousel').carousel({
                 interval: 3000,
                 ride: 'carousel'
             });
+
+            // Navbar scrolled effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 10) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
         });
     </script>
 
