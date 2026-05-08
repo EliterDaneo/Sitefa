@@ -53,7 +53,7 @@
         </div>
 
         {{-- Baris 1: Ketua (tengah) --}}
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-3" data-aos="fade-up">
             <div class="col-md-3 mb-3">
                 <div class="card text-center border-0 shadow-sm rounded-lg h-100"
                     style="border-top: 3px solid rgb(175,140,226) !important;">
@@ -95,7 +95,7 @@
         </div>
 
         {{-- Baris 2: Wakil Ketua, Sekretaris, Bendahara --}}
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="200">
             <div class="col-md-3 mb-3">
                 <div class="card text-center border-0 shadow-sm rounded-lg h-100">
                     <div class="card-body">
@@ -148,7 +148,7 @@
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6 mb-4" data-aos="fade-right">
                 <div class="card border-0 shadow-sm rounded-lg h-100">
                     <div class="card-body">
                         <h5 class="mb-3">
@@ -161,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6 mb-4" data-aos="fade-left">
                 <div class="card border-0 shadow-sm rounded-lg h-100">
                     <div class="card-body">
                         <h5 class="mb-3">
@@ -199,53 +199,23 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 rounded-lg">
-                    <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
-                        style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                    <div class="card-body">
-                        <a href="#" class="text-dark text-decoration-none">
-                            <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                        </a>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <i class="fa fa-calendar"></i> 07 Mei 2026
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 rounded-lg">
-                    <img src="{{ asset('assets/images/14.jpeg') }}" class="w-100"
-                        style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                    <div class="card-body">
-                        <a href="#" class="text-dark text-decoration-none">
-                            <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                        </a>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <i class="fa fa-calendar"></i> 07 Mei 2026
+            @foreach ([1, 2, 3] as $index)
+                {{-- Contoh jika menggunakan loop --}}
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="{{ $index * 100 }}">
+                    <div class="card h-100 shadow-sm border-0 rounded-lg">
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
+                            style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
+                        <div class="card-body">
+                            <a href="#" class="text-dark text-decoration-none">
+                                <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
+                            </a>
+                        </div>
+                        <div class="card-footer bg-white">
+                            <i class="fa fa-calendar"></i> 07 Mei 2026
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm border-0 rounded-lg">
-                    <img src="{{ asset('assets/images/13.jpeg') }}" class="w-100"
-                        style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                    <div class="card-body">
-                        <a href="#" class="text-dark text-decoration-none">
-                            <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                        </a>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <i class="fa fa-calendar"></i> 07 Mei 2026
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 text-center mt-2 mb-4">
-                <a href="{{ route('berita') }}" class="btn btn-outline-secondary px-4">
-                    <i class="fas fa-book-open mr-2"></i> Lihat Semua Berita
-                </a>
-            </div>
+            @endforeach
         </div>
 
         {{-- Produk & Sidebar --}}
@@ -256,62 +226,23 @@
                         <h4><i class="fas fa-box-open"></i> PRODUK TERBARU</h4>
                         <hr style="border-top: 3px solid rgb(175,140,226); width: 60px; margin-left: 0;">
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
-                                style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                            <div class="card-body">
-                                <a href="#" class="text-dark text-decoration-none">
-                                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                                </a>
-                            </div>
-                            <div class="card-footer bg-white">
-                                <i class="fa fa-calendar"></i> 07 Mei 2026
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/14.jpeg') }}" class="w-100"
-                                style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                            <div class="card-body">
-                                <a href="#" class="text-dark text-decoration-none">
-                                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                                </a>
-                            </div>
-                            <div class="card-footer bg-white">
-                                <i class="fa fa-calendar"></i> 07 Mei 2026
+                    @foreach ([1, 2, 3] as $index)
+                        {{-- Contoh jika menggunakan loop --}}
+                        <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="{{ $index * 100 }}">
+                            <div class="card h-100 shadow-sm border-0 rounded-lg">
+                                <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
+                                    style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
+                                <div class="card-body">
+                                    <a href="#" class="text-dark text-decoration-none">
+                                        <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
+                                    </a>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <i class="fa fa-calendar"></i> 07 Mei 2026
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/13.jpeg') }}" class="w-100"
-                                style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                            <div class="card-body">
-                                <a href="#" class="text-dark text-decoration-none">
-                                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                                </a>
-                            </div>
-                            <div class="card-footer bg-white">
-                                <i class="fa fa-calendar"></i> 07 Mei 2026
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
-                                style="height:200px;object-fit:cover;border-top-left-radius:.3rem;border-top-right-radius:.3rem;">
-                            <div class="card-body">
-                                <a href="#" class="text-dark text-decoration-none">
-                                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h6>
-                                </a>
-                            </div>
-                            <div class="card-footer bg-white">
-                                <i class="fa fa-calendar"></i> 07 Mei 2026
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="col-md-12 text-center mt-2 mb-3">
                         <a href="{{ route('produk') }}" class="btn btn-outline-secondary px-4">
                             <i class="fas fa-box-open mr-2"></i> Lihat Semua Produk
@@ -321,7 +252,7 @@
             </div>
 
             {{-- Sidebar Kategori --}}
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-left">
                 <div class="mb-4 mt-5">
                     <h4><i class="fa fa-folder"></i> KATEGORI</h4>
                 </div>
@@ -348,7 +279,7 @@
     </div>
 
     {{-- Rekanan Industri --}}
-    <div class="py-5">
+    <div class="py-5" data-aos="fade-up">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-md-12 text-center">

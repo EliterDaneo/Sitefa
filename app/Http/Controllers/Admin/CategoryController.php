@@ -27,4 +27,25 @@ class CategoryController extends Controller
 
         return response()->json(['message' => 'Data berhasil disimpan.']);
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        \App\Models\Category::findOrFail($id)->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        return response()->json(['message' => 'Data berhasil disimpan.']);
+    }
+
+    public function destroy($id)
+    {
+        \App\Models\Category::findOrFail($id)->delete();
+
+        return response()->json(['message' => 'Data berhasil dihapus.']);
+    }
 }

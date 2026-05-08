@@ -14,7 +14,8 @@
         box-shadow: 0 8px 32px rgba(175, 140, 226, 0.15);
         padding: 8px 24px;
         transition: all 0.3s ease;
-    ">
+    "
+    data-aos="fade-down">
     <div class="container-fluid px-0">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('welcome') }}">
             <img src="{{ asset('assets/images/Logo.jpeg') }}" alt="Logo" width="32" height="32"

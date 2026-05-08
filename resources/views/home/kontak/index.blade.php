@@ -27,7 +27,7 @@
     <div class="container mt-3 mb-5">
         <div class="row">
 
-            <div class="col-md-7">
+            <div class="col-md-7" data-aos="fade-right">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
                         <iframe
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5" data-aos="fade-left">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
                         <h3>KONTAK KAMI</h3>
