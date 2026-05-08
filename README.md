@@ -31,8 +31,8 @@ Fitur utama yang tersedia:
 
 ## Teknologi yang Digunakan
 
-- **[Laravel 11](https://laravel.com)** — Framework PHP backend
-- **[Bootstrap 4](https://getbootstrap.com/docs/4.6)** — UI framework responsif
+- **[Laravel 13](https://laravel.com)** — Framework PHP backend
+- **[Bootstrap 5](https://getbootstrap.com/docs/4.6)** — UI framework responsif
 - **[Font Awesome 5](https://fontawesome.com)** — Ikon
 - **MySQL** — Database
 - **Blade Components** — Navbar dan footer sebagai komponen reusable
