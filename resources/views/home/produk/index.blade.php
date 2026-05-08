@@ -30,7 +30,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
                     <div class="card-img">
-                        <img src="assets/images/post_image.png" class="w-100"
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                     </div>
                     <div class="card-body">
@@ -47,7 +47,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
                     <div class="card-img">
-                        <img src="assets/images/post_image.png" class="w-100"
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                     </div>
                     <div class="card-body">
@@ -64,7 +64,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
                     <div class="card-img">
-                        <img src="assets/images/post_image.png" class="w-100"
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                     </div>
                     <div class="card-body">
@@ -81,7 +81,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
                     <div class="card-img">
-                        <img src="assets/images/post_image.png" class="w-100"
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                     </div>
                     <div class="card-body">
@@ -98,7 +98,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
                     <div class="card-img">
-                        <img src="assets/images/post_image.png" class="w-100"
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                     </div>
                     <div class="card-body">
@@ -115,7 +115,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0 rounded-lg">
                     <div class="card-img">
-                        <img src="assets/images/post_image.png" class="w-100"
+                        <img src="{{ asset('assets/images/12.jpeg') }}" class="w-100"
                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                     </div>
                     <div class="card-body">

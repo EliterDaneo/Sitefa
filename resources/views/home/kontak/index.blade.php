@@ -43,8 +43,8 @@
                         <h3>KONTAK KAMI</h3>
                         <hr>
                         <p>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i> Jl. Jendral Sudirman No.83, Daerah Khusus
-                            Ibukota Jakarta, Indonesia <br>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> Jl. KH Ahmad Dahlan No 6, Kab Wonosobo, Jawa
+                            Tengah <br>
 
                             <i class="fas fa-phone"></i> +62857-8585-2224 <br>
 

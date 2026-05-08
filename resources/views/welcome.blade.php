@@ -157,6 +157,7 @@
         <div class="row mb-2">
             <div class="col-md-12">
                 <h4><i class="fas fa-book-open"></i> BERITA TERBARU</h4>
+                <hr style="border-top: 3px solid rgb(175,140,226); width: 60px; margin-left: 0;">
             </div>
         </div>
         <div class="row">
@@ -215,6 +216,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <h4><i class="fas fa-box-open"></i> PRODUK TERBARU</h4>
+                        <hr style="border-top: 3px solid rgb(175,140,226); width: 60px; margin-left: 0;">
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm border-0 rounded-lg">
