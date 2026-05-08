@@ -17,20 +17,14 @@
                         BERITA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('visi') ? 'active' : '' }}" href="{{ route('visi') }}"><i
-                            class="fa fa-book" aria-hidden="true"></i> VISI
-                        MISI</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}"
                         href="{{ route('produk') }}"><i class="fa fa-podcast" aria-hidden="true"></i>
                         PRODUK</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('struktur-organisasi') ? 'active' : '' }}"
-                        href="{{ route('struktur-organisasi') }}"><i class="fa fa-users" aria-hidden="true"></i>
-                        STRUKTUR
-                        ORGANISASI</a>
+                    <a class="nav-link {{ request()->routeIs('order') ? 'active' : '' }}" href="{{ route('order') }}"><i
+                            class="fa fa-cart-plus" aria-hidden="true"></i>
+                        ORDER</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('kontak') ? 'active' : '' }}"
