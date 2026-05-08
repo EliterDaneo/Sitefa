@@ -51,9 +51,12 @@
                 <hr style="border-top: 3px solid rgb(175,140,226); width: 60px; margin-left: 0;">
             </div>
         </div>
-        <div class="row mb-5">
+
+        {{-- Baris 1: Ketua (tengah) --}}
+        <div class="row justify-content-center mb-3">
             <div class="col-md-3 mb-3">
-                <div class="card text-center border-0 shadow-sm rounded-lg h-100">
+                <div class="card text-center border-0 shadow-sm rounded-lg h-100"
+                    style="border-top: 3px solid rgb(175,140,226) !important;">
                     <div class="card-body">
                         <div class="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center"
                             style="width:70px;height:70px;background:#EEEDFE;">
@@ -62,10 +65,37 @@
                         <h6 class="font-weight-bold mb-1">Ahmad Priyanto</h6>
                         <p class="text-muted small mb-2">Kepala Sekolah</p>
                         <span class="badge badge-pill px-3 py-2"
-                            style="background:#EEEDFE;color:#3C3489;font-size:11px;">Ketua</span>
+                            style="background:#534AB7;color:#fff;font-size:11px;">Ketua</span>
                     </div>
                 </div>
             </div>
+        </div>
+
+        {{-- Garis penghubung --}}
+        <div class="row justify-content-center mb-0">
+            <div class="col-md-3 text-center">
+                <div style="width: 2px; height: 30px; background: rgb(175,140,226); margin: 0 auto;"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-0">
+            <div class="col-md-9">
+                <div style="height: 2px; background: rgb(175,140,226);"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-3 text-center">
+                <div style="width: 2px; height: 30px; background: rgb(175,140,226); margin: 0 auto;"></div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div style="width: 2px; height: 30px; background: rgb(175,140,226); margin: 0 auto;"></div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div style="width: 2px; height: 30px; background: rgb(175,140,226); margin: 0 auto;"></div>
+            </div>
+        </div>
+
+        {{-- Baris 2: Wakil Ketua, Sekretaris, Bendahara --}}
+        <div class="row justify-content-center mb-5">
             <div class="col-md-3 mb-3">
                 <div class="card text-center border-0 shadow-sm rounded-lg h-100">
                     <div class="card-body">
@@ -110,6 +140,7 @@
             </div>
         </div>
 
+        {{-- Visi & Misi --}}
         <div class="row mb-4">
             <div class="col-md-12">
                 <h4><i class="fas fa-lightbulb"></i> VISI & MISI</h4>
