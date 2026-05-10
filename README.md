@@ -1,5 +1,3 @@
----
-
 <div align="center">
 
 <img src="public/assets/images/Logo.jpeg" alt="TEFA MUTU Logo" width="120" />
