@@ -10,6 +10,11 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(CategoryDataTable $dataTable)
     {
         return $dataTable->render('admin.category.index');

@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('vms', function (Blueprint $table) {
             $table->id();
-            $table->string('visi');
-            $table->text('misi');
+            $table->enum('type', ['vision', 'mission']);
+            $table->text('content');
+            $table->integer('order')->default(0);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

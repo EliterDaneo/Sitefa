@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->bigInteger('category_id')->unsigned();
             $table->text('content');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

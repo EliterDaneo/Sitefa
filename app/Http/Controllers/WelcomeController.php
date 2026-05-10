@@ -2,25 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Dudi;
 use App\Models\Order;
+use App\Models\Post;
+use App\Models\Produk;
+use App\Models\Slider;
+use App\Models\Struktur;
+use App\Models\Vm;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        $category = Category::where('status', 1)->paginate(10);
+        $beritas = Post::where('status', 1)->latest()->limit(6)->get();
+        $produks = Produk::where('status', 1)->latest()->limit(6)->get();
+        $dudis = Dudi::latest()->limit(6)->get();
+        $sliders = Slider::where('status', 1)->latest()->limit(6)->get();
+        $vms = Vm::where('status', true)->get();
+        $strukturs = Struktur::orderBy('position_level')->orderBy('order')->get();
+        return view('welcome', compact('category', 'beritas', 'produks', 'dudis', 'vms', 'strukturs', 'sliders'));
     }
 
     public function berita()
     {
-        return view('home.berita.index');
+        $beritas = Post::latest()->paginate(10);
+        return view('home.berita.index', compact('beritas'));
     }
 
+    public function showBerita($slug)
+    {
+        $post = Post::with(['category', 'user'])->where('slug', $slug)->firstOrFail();
+
+        $beritaTerkait = Post::with('category')
+            ->where('category_id', $post->category_id)
+            ->where('id', '!=', $post->id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        $beritaTerbaru = Post::latest()->take(5)->get();
+
+        $categories = Category::withCount('posts')->get();
+
+        return view('home.berita.show', compact(
+            'post',
+            'beritaTerkait',
+            'beritaTerbaru',
+            'categories'
+        ));
+    }
 
     public function produk()
     {
-        return view('home.produk.index');
+        $produks = Produk::latest()->paginate(10);
+        return view('home.produk.index', compact('produks'));
+    }
+
+    public function showProduk($slug)
+    {
+        $produk = Produk::where('slug', $slug)->firstOrFail();
+        return view('home.produk.show', compact('produk'));
     }
 
     public function order()
@@ -36,28 +80,30 @@ class WelcomeController extends Controller
             'email'         => 'nullable|email|max:100',
             'jenis_layanan' => 'required|string',
             'judul'         => 'required|string|max:150',
-            'deskripsi'     => 'required|string|min:10',
+            'deskripsi'     => 'required|string',
         ], [
-            'nama.required'          => 'Nama lengkap wajib diisi.',
-            'no_hp.required'         => 'No. HP wajib diisi.',
-            'jenis_layanan.required' => 'Pilih jenis layanan terlebih dahulu.',
-            'judul.required'         => 'Judul pesanan wajib diisi.',
-            'deskripsi.required'     => 'Deskripsi kebutuhan wajib diisi.',
-            'deskripsi.min'          => 'Deskripsi minimal 10 karakter.',
+            'required' => ':attribute wajib diisi.',
+            'max'      => ':attribute maksimal :max karakter.',
+            'email'    => 'Format email tidak valid.'
         ]);
 
-        Order::create($request->only([
-            'nama',
-            'no_hp',
-            'email',
-            'jenis_layanan',
-            'judul',
-            'deskripsi',
-            'anggaran',
-            'tanggal',
-        ]));
+        try {
+            // 2. Simpan Data
+            Order::create([
+                'nama'          => $request->nama,
+                'no_hp'         => $request->no_hp,
+                'email'         => $request->email,
+                'jenis_layanan' => $request->jenis_layanan,
+                'judul'         => $request->judul,
+                'deskripsi'     => $request->deskripsi,
+            ]);
 
-        return redirect()->route('order.index')->with('success', 'Pesanan berhasil dikirim! Kami akan segera menghubungi Anda.');
+            // 3. Redirect dengan pesan sukses
+            return redirect()->back()->with('success', 'Pesanan Anda telah berhasil dikirim! Tim kami akan segera menghubungi Anda.');
+        } catch (\Exception $e) {
+            // Jika ada error database atau sistem
+            return redirect()->back()->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
 
 

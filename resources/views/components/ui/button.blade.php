@@ -13,6 +13,7 @@
     'value' => '',
     'name' => '',
     'placeholder' => '',
+    'newType' => 'text',
 ])
 
 @switch($type)
@@ -80,7 +81,7 @@
     @case('input')
         <div class="mb-3 form-group">
             <label for="{{ $name }}" class="form-label">{{ $title }}</label>
-            <input type="{{ $type }}" class="form-control @error($name) is-invalid @enderror" id="{{ $name }}"
+            <input type="{{ $newType }}" class="form-control @error($name) is-invalid @enderror" id="{{ $name }}"
                 name="{{ $name }}" placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}"
                 {{ $attributes }}>
             @error($name)

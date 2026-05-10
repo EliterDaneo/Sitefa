@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 //forntend
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/berita', [App\Http\Controllers\WelcomeController::class, 'berita'])->name('berita');
+Route::get('/{slug}/detail', [App\Http\Controllers\WelcomeController::class, 'showBerita'])->name('berita.detail');
 Route::get('/order', [App\Http\Controllers\WelcomeController::class, 'order'])->name('order');
 Route::post('/order', [App\Http\Controllers\WelcomeController::class, 'storeOrder'])->name('order.store');
 Route::get('/produk', [App\Http\Controllers\WelcomeController::class, 'produk'])->name('produk');
+Route::get('/{slug}/show', [App\Http\Controllers\WelcomeController::class, 'showProduk'])->name('show.produk');
 Route::get('/kontak', [App\Http\Controllers\WelcomeController::class, 'kontak'])->name('kontak');
 
 //login dan register
@@ -27,5 +28,19 @@ Route::prefix('admin')->group(function () {
         //dashboard
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
         Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class, ['only' => ['create', 'store', 'update', 'destroy', 'index']]);
+        Route::resource('/berita', App\Http\Controllers\Admin\BeritaController::class, ['only' => ['create', 'store', 'destroy', 'index']]);
+        Route::get('/{slug}/edit', [App\Http\Controllers\Admin\BeritaController::class, 'edit'])->name('berita.edit');
+        Route::put('/{slug}/update', [App\Http\Controllers\Admin\BeritaController::class, 'update'])->name('berita.update');
+        Route::resource('order', \App\Http\Controllers\Admin\OrderController::class);
+        Route::resource('produk', \App\Http\Controllers\Admin\ProdukController::class);
+
+
+        Route::group(['middleware' => 'admin'], function () {
+            Route::resource('struktur', \App\Http\Controllers\Admin\StrukturController::class);
+            Route::resource('vm', \App\Http\Controllers\Admin\VisiMisiController::class);
+            Route::resource('slider', \App\Http\Controllers\Admin\SliderController::class);
+            Route::resource('dudi', \App\Http\Controllers\Admin\DudiController::class);
+            Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
+        });
     });
 });

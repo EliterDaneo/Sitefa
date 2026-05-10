@@ -17,6 +17,33 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
         crossorigin="anonymous" />
+
+
+    <style>
+        /* Tambahkan di file CSS Anda */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .img-wrapper {
+            overflow: hidden;
+        }
+
+        .product-card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        .rounded-right {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    </style>
+    @stack('styles')
 </head>
 
 <body style="background:#e2e8f0">
@@ -38,23 +65,15 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-
-            // Carousel
-            $('#myCarousel').carousel({
-                interval: 3000,
-                ride: 'carousel'
-            });
-
-            // Navbar scrolled effect
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 10) {
-                    $('.navbar').addClass('scrolled');
-                } else {
-                    $('.navbar').removeClass('scrolled');
-                }
-            });
-
+        document.addEventListener('DOMContentLoaded', function() {
+            var carousel = document.getElementById('myCarousel');
+            if (carousel) {
+                new bootstrap.Carousel(carousel, {
+                    interval: 3000, // ganti ms sesuai kebutuhan
+                    ride: 'carousel',
+                    wrap: true,
+                });
+            }
         });
     </script>
 

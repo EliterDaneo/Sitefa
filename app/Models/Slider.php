@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable(['title', 'status', 'image'])]
 class Slider extends Model
 {
-    //
+    protected $casts = [
+        'status' => 'boolean',
+    ];
 }

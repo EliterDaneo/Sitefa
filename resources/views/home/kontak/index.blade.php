@@ -3,7 +3,7 @@
 @section('content')
     <header class="pt-5 border-bottom bg-light">
         <div class="container pt-md-1 pb-md-1">
-            <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-phone" aria-hidden="true"></i> KONTAK
+            <h1 class="bd-title mt-4 font-weight-bold"><i class="bi bi-telephone" aria-hidden="true"></i> KONTAK
             </h1>
             <p class="bd-lead">Kontak Master-T.</p>
         </div>
@@ -13,12 +13,12 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('welcome') }}" class="text-decoration-none"><i class="fa fa-home"></i> Home
+                <a href="{{ route('welcome') }}" class="text-decoration-none"><i class="bi bi-house"></i> Home
                 </a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ route('kontak') }}" class="text-decoration-none"><i class="fa fa-phone"></i>
-                    Kontak</a>
+                <a class="text-decoration-none"><i class="bi bi-telephone"></i>
+                    Kontak Kami</a>
             </li>
         </ol>
     </nav>
