@@ -1,16 +1,3 @@
-<p align="center">
-  <img src="public/assets/images/Logo.jpeg" width="120" alt="TEFA MUTU Logo">
-</p>
-
-<h2 align="center">TEFA MUTU — Website Sekolah & Layanan Industri</h2>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Laravel-13.x-red?logo=laravel" alt="Laravel">
-  <img src="https://img.shields.io/badge/Bootstrap-4.x-7952B3?logo=bootstrap" alt="Bootstrap">
-  <img src="https://img.shields.io/badge/PHP-8.2-777BB4?logo=php" alt="PHP">
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
-</p>
-
 ---
 
 <div align="center">
@@ -22,7 +9,7 @@
 
 **Teaching Factory — Platform Digital Resmi Sekolah Vokasi**
 
-[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.x-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
