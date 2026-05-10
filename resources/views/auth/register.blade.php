@@ -1,108 +1,157 @@
 @extends('auth.app', ['title' => 'Register'])
 
 @section('content')
-    <div id="app">
-        <section class="section">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                        <div class="login-brand">
-                            <img src="{{ asset('assets/images/Logo.jpeg') }}" alt="logo" width="100"
-                                class="shadow-light rounded-circle" style="padding:10px;background: white;">
-                        </div>
-
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h4>Register</h4>
-                            </div>
-
-                            <div class="card-body">
-                                <form method="POST" action="{{ route('proses.register') }}" class="needs-validation"
-                                    novalidate="">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            placeholder="Masukkan Alamat Email" value="{{ old('email') }}" tabindex="1"
-                                            required autofocus>
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="password"
-                                                class="control-label @error('password') is-invalid @enderror">Password</label>
-                                        </div>
-                                        <input id="password" type="password" class="form-control" name="password"
-                                            placeholder="Masukkan Password" tabindex="2" required>
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="phone"
-                                                class="control-label @error('phone') is-invalid @enderror">Phone</label>
-                                        </div>
-                                        <input id="phone" type="text" class="form-control" name="phone"
-                                            placeholder="Masukkan Nomor Telepon" tabindex="3" required>
-                                        @error('phone')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="address"
-                                                class="control-label @error('address') is-invalid @enderror">Address</label>
-                                        </div>
-                                        <input id="address" type="text" class="form-control" name="address"
-                                            placeholder="Masukkan Alamat" tabindex="4" required>
-                                        @error('address')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="asal_sekolah"
-                                                class="control-label @error('asal_sekolah') is-invalid @enderror">Asal
-                                                Sekolah</label>
-                                        </div>
-                                        <input id="asal_sekolah" type="text" class="form-control" name="asal_sekolah"
-                                            placeholder="Masukkan Asal Sekolah" tabindex="5" required>
-                                        @error('asal_sekolah')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                                            Register
-                                        </button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <a href="{{ route('welcome') }}"
+                    class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover">
+                    <h1 class="mb-0"><b>MASTER</b>T</h1>
+                </a>
             </div>
-        </section>
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Register a new membership in to start your session</p>
+
+                <form action="{{ route('proses.register') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="loginEmail" name="email" type="email"
+                                class="form-control @error('email') is-invalid
+                            @enderror"
+                                value="" placeholder="" />
+                            <label for="loginEmail">Email</label>
+                        </div>
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="input-group-text">
+                            <span class="bi bi-envelope"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="name" name="name" type="text"
+                                class="form-control @error('name')
+                                is-invalid
+                            @enderror"
+                                placeholder="" />
+                            <label for="name">Nama Lengkap</label>
+                        </div>
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="input-group-text">
+                            <span class="bi bi-person"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="form-floating">
+                            <input id="phone" name="phone" type="text"
+                                class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}"
+                                placeholder="0812..."
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                            <label for="phone">Nomor Telepon</label>
+                        </div>
+                        <div class="input-group-text">
+                            <span class="bi bi-telephone"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="address" name="address" type="text"
+                                class="form-control @error('address')
+                                is-invalid
+                            @enderror"
+                                placeholder="" />
+                            <label for="address">Alamat</label>
+                        </div>
+                        @error('address')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="input-group-text">
+                            <span class="bi bi-pin-map"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="asal_sekolah" name="asal_sekolah" type="text"
+                                class="form-control @error('asal_sekolah')
+                                is-invalid
+                            @enderror"
+                                placeholder="" />
+                            <label for="address">Asal Sekolah</label>
+                        </div>
+                        @error('asal_sekolah')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="input-group-text">
+                            <span class="bi bi-building"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="loginPassword" name="password" type="password"
+                                class="form-control @error('password')
+                                is-invalid
+                            @enderror"
+                                placeholder="" />
+                            <label for="loginPassword">Password</label>
+                        </div>
+                        @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="input-group-text">
+                            <span class="bi bi-lock-fill"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="avatar" name="avatar" type="file"
+                                class="form-control @error('avatar')
+                                is-invalid
+                            @enderror"
+                                placeholder="Masukan Alamat Lengkap" />
+                            <label for="avatar">Logo Sekolah</label>
+                        </div>
+                        @error('avatar')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="input-group-text">
+                            <span class="bi bi-file-earmark"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <p class="mb-0">
+                    <a href="{{ route('login') }}" class="text-center"> I already have a membership </a>
+                </p>
+            </div>
+        </div>
     </div>
 @endsection

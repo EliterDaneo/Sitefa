@@ -22,7 +22,7 @@ Route::prefix('admin')->group(function () {
 
     Route::group(['middleware' => 'auth'], function () {
         //logout
-        Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+        Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('admin.logout');
 
         //dashboard
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');

@@ -26,10 +26,14 @@ class CategoryDataTable extends DataTable
             ->addColumn('created_at', function ($query) {
                 return $query->created_at->format('d-m-Y');
             })
-            ->addColumn('updated_at', function ($query) {
-                return $query->updated_at->format('d-m-Y');
+            ->addColumn('status', function ($query) {
+                $badgeClass = $query->status == 1 ? 'bg-success' : 'bg-danger';
+                $statusText = $query->status == 1 ? 'Aktif' : 'Tidak Aktif';
+
+                return "<span class='status-toggle badge {$badgeClass}'>{$statusText}</span>";
             })
-            ->setRowId('id');
+            ->setRowId('id')
+            ->rawColumns(['action', 'status']);
     }
 
     /**
@@ -72,12 +76,12 @@ class CategoryDataTable extends DataTable
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(60)
-                ->addClass('text-center'),
+                ->width(120),
+            Column::make('id')->title('No')->render('meta.row + meta.settings._iDisplayStart + 1;'),
             Column::make('name'),
             Column::make('slug'),
             Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('status'),
         ];
     }
 

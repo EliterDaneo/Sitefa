@@ -1,4 +1,4 @@
-@extends('layouts.app', ['Kontak Kami'])
+@extends('components.layouts.front.app', ['Kontak Kami'])
 
 @section('content')
     <header class="pt-5 border-bottom bg-light">

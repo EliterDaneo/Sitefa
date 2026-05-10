@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -18,11 +19,14 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'status' => 'required|in:1,0',
         ]);
 
         \App\Models\Category::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'status' => $request->status,
+            'user_id' => Auth::user()->id
         ]);
 
         return response()->json(['message' => 'Data berhasil disimpan.']);
@@ -32,11 +36,14 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'status' => 'required|in:1,0',
         ]);
 
         \App\Models\Category::findOrFail($id)->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'status' => $request->status,
+            'user_id' => Auth::user()->id
         ]);
 
         return response()->json(['message' => 'Data berhasil disimpan.']);
@@ -44,8 +51,22 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        \App\Models\Category::findOrFail($id)->delete();
+        $category = \App\Models\Category::findOrFail($id);
+        $user = Auth::user();
 
-        return response()->json(['message' => 'Data berhasil dihapus.']);
+        if ($user->role === 'admin' || ($user->role === 'user' && $category->user_id === $user->id)) {
+
+            $category->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil dihapus.'
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Anda tidak memiliki hak akses untuk menghapus data ini.'
+        ], 403);
     }
 }

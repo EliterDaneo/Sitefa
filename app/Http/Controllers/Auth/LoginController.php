@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -38,27 +39,42 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'phone' => 'required|string|max:20',
-            'address' => 'required|string|max:255',
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|string|email|max:255|unique:users',
+            'password'     => 'required|string|min:8',
+            'phone'        => 'required|numeric|digits_between:10,15',
+            'address'      => 'required|string|max:255',
             'asal_sekolah' => 'required|string|max:255',
+            'avatar'       => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ], [
+            'phone.numeric' => 'Nomor telepon harus berupa angka.',
+            'phone.digits_between' => 'Nomor telepon harus di antara 10 sampai 15 karakter.',
         ]);
 
-        $user = \App\Models\User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']),
-            'phone' => $validatedData['phone'],
-            'address' => $validatedData['address'],
-            'asal_sekolah' => $validatedData['asal_sekolah'],
-            'role' => 'user',
-        ]);
+        try {
+            $fileName = null;
+            if ($request->hasFile('avatar')) {
+                $file = $request->file('avatar');
+                $fileName = str_replace(' ', '_', strtolower($validatedData['name'])) . '_' . time() . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('assets/back/img/avatar', $fileName, 'public');
+            }
 
-        Auth::login($user);
+            $user = \App\Models\User::create([
+                'name'         => $validatedData['name'],
+                'email'        => $validatedData['email'],
+                'password'     => Hash::make($validatedData['password']),
+                'phone'        => $validatedData['phone'],
+                'address'      => $validatedData['address'],
+                'asal_sekolah' => $validatedData['asal_sekolah'],
+                'avatar'       => $fileName,
+                'role'         => 'user',
+            ]);
 
-        return redirect()->intended('/admin/dashboard')->with('success', 'Registration successful. Welcome to the dashboard!');
+            Auth::login($user);
+            return redirect('/admin/dashboard')->with('success', 'Registration successful!');
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['error' => 'Gagal mendaftar: ' . $e->getMessage()]);
+        }
     }
 
     public function logout(Request $request)

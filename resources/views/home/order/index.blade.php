@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Order Layanan TEFA'])
+@extends('components.layouts.front.app', ['title' => 'Order Layanan TEFA'])
 
 @section('content')
     <header class="pt-5 border-bottom bg-light">

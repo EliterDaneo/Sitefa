@@ -2,34 +2,34 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
+#[Fillable([
+    'nama',
+    'no_hp',
+    'email',
+    'jenis_layanan',
+    'judul',
+    'deskripsi',
+    'status',
+    'catatan_toko',
+    'user_id',
+])]
 class Order extends Model
 {
-    protected $fillable = [
-        'nama',
-        'no_hp',
-        'email',
-        'jenis_layanan',
-        'judul',
-        'deskripsi',
-        'status',
-        'catatan_admin',
-    ];
+    public function user(){
+        $this->belongsTo(User::class);
+    }
 
-    protected $casts = [
-        'tanggal' => 'date',
-    ];
-
-    // Label status dengan warna badge Bootstrap
     public function statusBadge(): string
     {
         return match ($this->status) {
-            'pending'     => '<span class="badge badge-warning">Pending</span>',
-            'diproses'    => '<span class="badge badge-info">Diproses</span>',
-            'selesai'     => '<span class="badge badge-success">Selesai</span>',
-            'dibatalkan'  => '<span class="badge badge-danger">Dibatalkan</span>',
-            default       => '<span class="badge badge-secondary">-</span>',
+            'pending'     => '<span class="badge bg-warning">Pending</span>',
+            'diproses'    => '<span class="badge bg-info">Diproses</span>',
+            'selesai'     => '<span class="badge bg-success">Selesai</span>',
+            'dibatalkan'  => '<span class="badge bg-danger">Dibatalkan</span>',
+            default       => '<span class="badge bg-secondary">-</span>',
         };
     }
 }

@@ -119,7 +119,6 @@ window.AjaxCrudHelper = (function () {
         });
     };
 
-
     // Public API
     return {
         handleForm,

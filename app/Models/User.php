@@ -29,4 +29,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getAvatarUrlAttribute()
+    {
+        if ($this->avatar && file_exists(public_path('storage/assets/back/img/avatar/' . $this->avatar))) {
+            return asset('storage/assets/back/img/avatar/' . $this->avatar);
+        }
+
+        return asset('assets/back/img/avatar/avatar-1.png');
+    }
 }
